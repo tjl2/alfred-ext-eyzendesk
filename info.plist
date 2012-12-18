@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>action</key>
+	<false/>
+	<key>category</key>
+	<string>SCRIPTS</string>
+	<key>command</key>
+	<string>TICKET_ID={query}
+
+case $TICKET_ID in
+  t)
+    # Open the Triage view
+    open https://engineyard.zendesk.com/agent/#/filters/1420871
+  ;;
+  q)
+    # Open the Priority by Policy view
+    open https://engineyard.zendesk.com/agent/#/filters/23807303
+  ;;
+  *)
+    # Assume we've been given a ticket ID
+    TICKET_ID=$(echo $TICKET_ID|sed s/'\#'/''/)
+    open https://engineyard.zendesk.com/agent/#/tickets/$TICKET_ID
+  ;;
+esac</string>
+	<key>disabled</key>
+	<false/>
+	<key>escapedollar</key>
+	<false/>
+	<key>escapequery</key>
+	<true/>
+	<key>escapequerybackquotes</key>
+	<true/>
+	<key>escapequerybrackets</key>
+	<true/>
+	<key>escapequeryquotes</key>
+	<true/>
+	<key>escapequerysemicolons</key>
+	<true/>
+	<key>growloutput</key>
+	<false/>
+	<key>growloutputsticky</key>
+	<false/>
+	<key>keyword</key>
+	<string>zd</string>
+	<key>logging</key>
+	<false/>
+	<key>multifileargs</key>
+	<false/>
+	<key>parameter</key>
+	<integer>3</integer>
+	<key>silent</key>
+	<true/>
+	<key>subtitle</key>
+	<string>Open the ZD ticket pages or views</string>
+	<key>title</key>
+	<string>Open ZD Ticket or View {query}</string>
+</dict>
+</plist>
